@@ -8,7 +8,7 @@
 import Foundation
 
 func startGame() {
-    print("🌟 Willkommen zum Abdallas RPG! 🌟")
+    print("🌟 Willkommen zum mein Spiel RPG! 🌟")
     print("Wie lautet dein Name?")
     let playerName = readLine() ?? "Spieler"
     
