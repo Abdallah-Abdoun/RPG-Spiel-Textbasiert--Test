@@ -20,11 +20,14 @@ struct Enemy {
 }
 
 
-func generateRandomEnemy() -> Enemy {
+func generateRandomEnemy(healthBonus: Int = 0, attackBonus: Int = 0) -> Enemy {
     let enemies = [
         Enemy(name: "Goblin 👹", health: 50, attackPower: 10),
         Enemy(name: "Orc 🐗", health: 80, attackPower: 15),
         Enemy(name: "Troll 🐲", health: 120, attackPower: 20)
     ]
-    return enemies.randomElement()!
+    var enemy = enemies.randomElement()!
+    enemy.health += healthBonus
+    enemy.attackPower += attackBonus
+    return enemy
 }

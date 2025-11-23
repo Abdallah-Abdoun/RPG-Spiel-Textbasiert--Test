@@ -25,6 +25,24 @@ struct Quest {
     }
 }
 
+func createInitialQuests(for gameMode: GameMode) -> [Quest] {
+    switch gameMode {
+    case .story:
+        return [
+            Quest(name: "Erste Schritte", objective: "Goblin 👹", progress: 0, target: 2, reward: "50 XP", isComplete: false),
+            Quest(name: "Dorfbeschützer", objective: "Orc 🐗", progress: 0, target: 1, reward: "Holz-Schild", isComplete: false)
+        ]
+    case .survival:
+        return [
+            Quest(name: "Überlebenstag Eins", objective: "Goblin 👹", progress: 0, target: 3, reward: "Health Potion", isComplete: false)
+        ]
+    case .arena:
+        return [
+            Quest(name: "Champion werden", objective: "Troll 🐲", progress: 0, target: 1, reward: "Arena-Schwert", isComplete: false)
+        ]
+    }
+}
+
 func updateQuests(_ quests: inout [Quest], with enemyName: String) {
     for i in 0..<quests.count {
         if quests[i].objective == enemyName && !quests[i].isComplete {
